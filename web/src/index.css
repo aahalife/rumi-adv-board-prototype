@@ -1,0 +1,469 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   SANO — two worlds, one soul.
+   Light: "Clay & Dawn"  ·  Dark: "Indigo Night"
+   Typography: Fraunces (serif voice) + Hermione (display)
+   ============================================================ */
+
+@font-face {
+  font-family: "Fraunces";
+  src: url("/fonts/Fraunces-400.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Fraunces";
+  src: url("/fonts/Fraunces-500.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Fraunces";
+  src: url("/fonts/Fraunces-600.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Fraunces";
+  src: url("/fonts/Fraunces-700.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Fraunces";
+  src: url("/fonts/Fraunces-400-italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Hermione";
+  src: url("/fonts/HermioneFREE.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root,
+  .day {
+    /* Ground */
+    --base: 246 238 227;
+    --surface: 255 252 247;
+    --raised: 255 248 238;
+    --ink: 46 36 24;
+    --ink-muted: 111 97 81;
+    --edge: 231 216 196;
+    --shadow: 197 154 110;
+    /* Accents */
+    --warm: 224 118 78;
+    --life: 127 174 126;
+    --sky: 110 156 200;
+    --gold: 217 163 72;
+    --rose: 216 132 155;
+    --attention: 217 138 61;
+    /* Glass */
+    --glass-tint: 255 255 255;
+    --glass-alpha: 0.5;
+    --glass-border: 255 255 255;
+    --glass-border-alpha: 0.55;
+    --hairline: 255 255 255;
+
+    /* shadcn bridge */
+    --background: 246 238 227;
+    --foreground: 46 36 24;
+    --card: 255 252 247;
+    --card-foreground: 46 36 24;
+    --popover: 255 252 247;
+    --popover-foreground: 46 36 24;
+    --primary: 46 36 24;
+    --primary-foreground: 255 252 247;
+    --secondary: 255 248 238;
+    --secondary-foreground: 46 36 24;
+    --muted: 255 248 238;
+    --muted-foreground: 111 97 81;
+    --accent: 224 118 78;
+    --accent-foreground: 255 252 247;
+    --destructive: 200 80 70;
+    --destructive-foreground: 255 252 247;
+    --border: 231 216 196;
+    --input: 231 216 196;
+    --ring: 224 118 78;
+    --radius: 1.4rem;
+  }
+
+  .night {
+    --base: 13 17 38;
+    --surface: 30 36 73;
+    --raised: 42 49 96;
+    --ink: 244 241 234;
+    --ink-muted: 167 173 206;
+    --edge: 58 65 120;
+    --shadow: 0 0 0;
+    --warm: 255 158 126;
+    --life: 143 239 192;
+    --sky: 143 198 255;
+    --gold: 200 182 255;
+    --rose: 255 159 178;
+    --attention: 255 190 143;
+    --glass-tint: 40 48 92;
+    --glass-alpha: 0.42;
+    --glass-border: 180 190 255;
+    --glass-border-alpha: 0.22;
+    --hairline: 180 190 255;
+
+    --background: 13 17 38;
+    --foreground: 244 241 234;
+    --card: 30 36 73;
+    --card-foreground: 244 241 234;
+    --popover: 30 36 73;
+    --popover-foreground: 244 241 234;
+    --primary: 244 241 234;
+    --primary-foreground: 13 17 38;
+    --secondary: 42 49 96;
+    --secondary-foreground: 244 241 234;
+    --muted: 42 49 96;
+    --muted-foreground: 167 173 206;
+    --accent: 255 158 126;
+    --accent-foreground: 13 17 38;
+    --destructive: 255 130 120;
+    --destructive-foreground: 13 17 38;
+    --border: 58 65 120;
+    --input: 58 65 120;
+    --ring: 255 158 126;
+  }
+
+  * {
+    @apply border-border;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-base text-ink;
+    font-family: "SF Pro Rounded", ui-rounded, "Nunito", "Quicksand", system-ui,
+      -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior: none;
+  }
+
+  /* Hide scrollbars everywhere — this is a "calm world", not a dashboard */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  * {
+    scrollbar-width: none;
+  }
+}
+
+@layer components {
+  .font-serif {
+    font-family: "Fraunces", Georgia, "Times New Roman", serif;
+    font-feature-settings: "ss01";
+  }
+  .font-display {
+    font-family: "Hermione", "Fraunces", Georgia, serif;
+    letter-spacing: 0.01em;
+  }
+  .font-rounded {
+    font-family: "SF Pro Rounded", ui-rounded, "Nunito", "Quicksand", system-ui,
+      sans-serif;
+  }
+  .tnum {
+    font-variant-numeric: tabular-nums;
+    font-family: "SF Pro Rounded", ui-rounded, "Nunito", system-ui, sans-serif;
+  }
+
+  .kicker {
+    font-family: "SF Pro Rounded", ui-rounded, "Nunito", system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  /* ---- Liquid Glass chrome ---- */
+  .glass {
+    background: rgb(var(--glass-tint) / var(--glass-alpha));
+    backdrop-filter: blur(26px) saturate(180%);
+    -webkit-backdrop-filter: blur(26px) saturate(180%);
+    border: 1px solid rgb(var(--glass-border) / var(--glass-border-alpha));
+    box-shadow:
+      0 1px 0 0 rgb(var(--hairline) / 0.5) inset,
+      0 18px 50px -22px rgb(var(--shadow) / 0.55);
+  }
+  .glass-strong {
+    background: rgb(var(--glass-tint) / calc(var(--glass-alpha) + 0.2));
+    backdrop-filter: blur(40px) saturate(200%);
+    -webkit-backdrop-filter: blur(40px) saturate(200%);
+    border: 1px solid rgb(var(--glass-border) / var(--glass-border-alpha));
+    box-shadow:
+      0 1px 0 0 rgb(var(--hairline) / 0.6) inset,
+      0 24px 60px -24px rgb(var(--shadow) / 0.6);
+  }
+
+  /* ---- Organic surface: the default porcelain card ---- */
+  .organic {
+    background: linear-gradient(
+      160deg,
+      rgb(var(--surface) / 0.96),
+      rgb(var(--raised) / 0.92)
+    );
+    border: 1px solid rgb(var(--edge) / 0.7);
+    box-shadow:
+      0 1px 0 0 rgb(var(--hairline) / 0.5) inset,
+      0 22px 48px -28px rgb(var(--shadow) / 0.5);
+  }
+  .night .organic {
+    box-shadow:
+      0 1px 0 0 rgb(var(--hairline) / 0.12) inset,
+      0 24px 60px -26px rgb(0 0 0 / 0.55);
+  }
+
+  .press {
+    transition:
+      transform 0.18s cubic-bezier(0.34, 1.3, 0.64, 1),
+      opacity 0.18s ease;
+    will-change: transform;
+  }
+  .press:active {
+    transform: scale(0.955);
+    opacity: 0.9;
+  }
+}
+
+/* ============================================================
+   Motion
+   ============================================================ */
+@keyframes breathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.045);
+  }
+}
+@keyframes haloPulse {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.12);
+  }
+}
+@keyframes floatBob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+@keyframes drift {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(4%, -3%) scale(1.06);
+  }
+  66% {
+    transform: translate(-3%, 3%) scale(0.97);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+@keyframes sweep {
+  0% {
+    transform: translateX(-120%) skewX(-18deg);
+    opacity: 0;
+  }
+  18% {
+    opacity: 0.8;
+  }
+  60% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(220%) skewX(-18deg);
+    opacity: 0;
+  }
+}
+@keyframes streamGlow {
+  0%,
+  100% {
+    text-shadow: 0 0 16px rgb(var(--warm) / 0.45);
+  }
+  50% {
+    text-shadow: 0 0 26px rgb(var(--warm) / 0.7);
+  }
+}
+@keyframes rippleOut {
+  0% {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(3.2);
+    opacity: 0;
+  }
+}
+@keyframes risein {
+  0% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes bloomPop {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes shimmerDots {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+}
+@keyframes wave {
+  0%,
+  100% {
+    transform: scaleY(0.4);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+@keyframes spinSlow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes voiceRise {
+  0% {
+    transform: translateY(22vh) scale(0.7);
+    opacity: 0;
+  }
+  18% {
+    opacity: var(--voice-particle-opacity, 0.45);
+  }
+  100% {
+    transform: translateY(-104vh) scale(1.18);
+    opacity: 0;
+  }
+}
+@keyframes pushIn {
+  0% {
+    opacity: 0;
+    transform: translateX(8%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeScale {
+  0% {
+    opacity: 0;
+    transform: scale(1.03);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.anim-push {
+  animation: pushIn 0.4s cubic-bezier(0.32, 0.72, 0, 1) both;
+}
+.anim-fade {
+  animation: fadeScale 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.anim-sweep::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(
+    100deg,
+    transparent 20%,
+    rgb(var(--hairline) / 0.55) 50%,
+    transparent 80%
+  );
+  animation: sweep 4.5s ease-in-out infinite;
+  mix-blend-mode: overlay;
+}
+
+.anim-breathe {
+  animation: breathe 5.5s ease-in-out infinite;
+}
+.anim-halo {
+  animation: haloPulse 5.5s ease-in-out infinite;
+}
+.anim-bob {
+  animation: floatBob 6s ease-in-out infinite;
+}
+.anim-rise {
+  animation: risein 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.anim-bloom {
+  animation: bloomPop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+.voice-particle {
+  position: absolute;
+  bottom: -32px;
+  width: 5px;
+  height: 5px;
+  border-radius: 999px;
+  background: radial-gradient(circle, white, rgb(var(--sky) / 0.9), transparent 72%);
+  filter: blur(0.4px);
+  animation: voiceRise 4.8s linear infinite;
+  box-shadow: 0 0 18px rgb(var(--sky) / 0.65), 0 0 30px rgb(var(--rose) / 0.38);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-breathe,
+  .anim-halo,
+  .anim-bob,
+  .anim-rise,
+  .anim-bloom,
+  .voice-particle {
+    animation: none !important;
+  }
+}
